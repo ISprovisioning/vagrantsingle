@@ -1,0 +1,15 @@
+site_name: Reproducible Research Tutorial
+pages:
+- Home: 'index.md'
+- Pre-Requisites/Setup: 'setup/index.md'
+- Hands-On/Documentation: 'hands-on/docs.md'
+- Hands-On/Vagrant: 'hands-on/vagrant.md'
+- Hands-On/Docker:  'hands-on/docker.md'
+- Documentation (RTFD): 'rtfd.md'
+- Contributing:
+  - 'Overview': 'contributing/index.md'
+  - 'Directory Layout': 'contributing/layout.md'
+  - 'Repository Setup and Developments': 'contributing/setup.md'
+  - 'Semantic Versioning': 'contributing/versioning.md'
+- List of Hands-on: 'hands-on/index.md'
+theme: readthedocs

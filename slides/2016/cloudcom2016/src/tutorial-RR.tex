@@ -1,0 +1,217 @@
+% =============================================================================
+% File:  tutorial-RR.tex --
+% Author(s): Sebastien Varrette (Sebastien.Varrette@uni.lu)
+% Time-stamp: <Mon 2016-12-12 08:51 svarrette>
+%
+% Copyright (c) 2016 Sebastien Varrette<Sebastien.Varrette@uni.lu>
+%
+% For more information:
+% - LaTeX: http://www.latex-project.org/
+% - Beamer: https://bitbucket.org/rivanvx/beamer/
+% - LaTeX symbol list:
+% http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf
+% =============================================================================
+
+\documentclass[t]{beamer}
+% \documentclass[draft]{beamer}
+
+\usepackage{_style}
+% \usepackage{rotating}
+\usepackage{figlatex}
+\usepackage{smartdiagram}
+% Biblio
+\usepackage[style=verbose,autocite=footnote,maxnames=2,babel=hyphen,hyperref=true,abbreviate=false,mcite,backend=biber]{biblatex}
+\setbeamerfont{footnote}{size=\tiny}
+
+\addbibresource{biblio.bib}
+
+% \renewcommand{\footnotesize}{\tiny}
+% Removes icon in bibliography
+\setbeamertemplate{bibliography item}{}
+
+
+% The key part to use my theme -- if you precise nothing, the image that
+% illustrate the slides is assumed to be images/slides_image.jpg
+\usetheme[image=images/logo_ULHPC.pdf]{Falkor}
+
+% Not integrated in my theme as not everybody wants that
+\AtBeginSection[]
+{
+  \frame{
+    \frametitle{Summary}
+    {\scriptsize\tableofcontents[currentsection]}
+  }
+}
+\AtBeginSubsection[]
+{
+  \frame{
+    \frametitle{Summary}
+    %\begin{multicols}{2}
+      {\scriptsize\tableofcontents[currentsection,currentsubsection]}
+    %\end{multicols}
+  }
+}
+
+\graphicspath{{images/}{images/author_reader_rr/}} % Add this directory to the searched paths for graphics
+
+
+%%%%%%%%%% Header %%%%%%%%%%%%
+\title{Reproducible Research at the Cloud Era}
+\subtitle{Overview, Hands-on and Open Challenges}
+
+\author[Sebastien Varrette]{S\'ebastien Varrette, PhD}
+\institute[University of Luxembourg]{\vspace*{-1em}
+  Parallel Computing and Optimization Group (\href{http://pcog.uni.lu}{PCOG}),
+  University of Luxembourg (\href{http://www.uni.lu}{UL}), Luxembourg\\[1em]
+
+  \begin{tcolorbox}\centering
+    \url{http://RR-tutorials.rtfd.io}
+  \end{tcolorbox}
+
+  \textbf{\alert{Before the tutorial starts}:} Visit\\
+  \url{https://goo.gl/l9mCsM}\\
+  for \textit{preliminary setup instructions}!
+}
+
+% Mandatory to **declare** a logo to be placed on the bottom right -- normally the
+% university logo. ADAPT ACCORDINGLY:
+\pgfdeclareimage[height=0.8cm]{logo}{images/logo_UL.pdf}
+
+\date{}
+
+%%%%%%%%%%%%% Body %%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{frame}
+  \vspace{2.5em}
+  \titlepage
+\end{frame}
+
+% ......
+\frame{
+  \frametitle{Summary}
+  {\scriptsize
+    \tableofcontents
+  }
+}
+
+% ___________________
+\input{_me.md}
+\input{_preamble.md}
+\input{_pre-install.md}
+
+
+% ____________________________________________________________
+\section{Introduction and Motivating Examples}
+\input{_intro.md}
+
+%____________________________________________________________
+\section{Reproducible Research}
+\input{_reproducible_research.md}
+
+%...................................................
+\subsection{Easy-to \{read|take|share\} Docs}
+\input{_docs.md}
+
+%...................................................
+\subsection{Sharing Code and Data}
+\input{_sharing.md}
+\input{_git.md}
+
+%...................................................
+\subsection{Mastering your [reproducible] environment}
+\input{_environment.md}
+\input{_vagrant.md}
+\input{_software.md}
+\input{_docker.md}
+
+
+% % % %
+% % Dissemination Platforms
+% %
+% % Workflow Tracking and Research Environments:
+% % - VisTrails
+% % - Galaxy
+% % - Sumatra
+% % - CDE
+% % - Synapse...
+% %
+% % Embedded Publishing
+% % - Figshare, ActivePapers, Elsevier executable paper
+% % - Verifiable Computational Research
+% % - knitR
+% % - Sweave
+% %
+% % Good Practice for Setting up a Laboratory Notebook
+% % - Step 0: Taking Notes
+% % \input{__docs.md}
+% % - Step 1: Sharing Code and Data
+% % Git, Reprozip
+% % - Step 2: Literate programming
+% % with LaTeX and R: Sweave, knitR...
+% % Ipython/Jupyter Notebook
+% %
+% % Automatic testing
+% % - Bats, Travis, gitlab-CI, codeclimate....
+
+%____________________________________________________________
+\section{Conclusion}
+\input{_conclusion.md}
+%\input{_not_cover}
+% Open Challenges
+\input{_challenges.md}
+
+
+% ======================== END =========================
+\section*{Thank you for your attention...}
+\frame{
+\frametitle{Questions?}
+  % ~~~~~~~~~~~~~~
+\begin{columns}
+  \column{0.5\textwidth}
+    %   \emph{Contact}\\
+  {\tiny
+  \emph{Sebastien Varrette}\\
+  ~~~~ \textit{mail:} \href{mailto:Sebastien.Varrette@uni.lu}{Sebastien.Varrette@uni.lu}\\
+  ~~~~ Office E-007\\
+  ~~~~ Campus Kirchberg\\
+  ~~~~ 6, rue Coudenhove-Kalergi\\
+  ~~~~ L-1359 Luxembourg
+
+}
+  \column{0.5\textwidth}
+    %   \scalebox{8}{\emph{?}}
+  \includegraphics[width=1.5in]{question.jpg}
+\end{columns}
+  % Below is the table of content over 2 columns
+\vfill
+\begin{multicols}{2}
+  {\tiny \tableofcontents}
+\end{multicols}
+
+}
+
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+% % .......
+% \frame{
+% \frametitle{}
+% \vfill
+% \centering \LARGE Appendix\footnote{notice the slide number below...}
+% \vfill
+% }
+
+\setcounter{framenumber}{\value{finalframe}}
+
+\end{document}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% eof
+%
+% Local Variables:
+% mode: latex
+% mode: flyspell
+% mode: visual-line
+% TeX-master: "tutorial-RR.tex"
+% End:
